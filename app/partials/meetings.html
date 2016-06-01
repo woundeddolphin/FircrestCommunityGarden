@@ -1,0 +1,35 @@
+
+<md-content class="parent md-padding">
+  <div layout="row" layout-xs="column" ng-controller="meetingCtrl" layout-wrap>
+    <div ng-repeat="post in blog|orderBy:'-date'"  flex-xs="100" flex="33" flex-sm="100" flex-md="50">
+
+      <md-card class="blog-post md-whiteframe-3dp">
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">{{post.title}}</span>
+            <span class="md-subhead"> 
+              {{post.date.toDateString()}} <br> Author: {{post.author}} <br>Venue: {{post.venue}} <br> Chair/Host: {{post.host}} 
+            </span>
+          </md-card-title-text>
+          <md-card-title-media>
+            <img class="md-media-lg" ng-src={{post.img}}>
+          </md-card-title-media>
+        </md-card-title style="padding-bottom: 0">
+        <md-card-content style="padding-top: 0">
+          <p><b>introductions:</b></p>
+          <ul ng-repeat="name in post.intros" style="margin: 0;">
+            <li> {{name}} </li>
+          </ul>
+          <p ng-bind-html="post.body">
+          </p>
+        </md-card-content>
+        <md-card-actions layout="row" layout-align="end center">
+          <!--<md-button class="md-raised md-accent">
+            <md-icon md-svg-src="share-variant"></md-icon>
+          </md-button>-->
+        </md-card-actions>
+      </md-card>
+
+    </div>
+  </div>
+</md-content>

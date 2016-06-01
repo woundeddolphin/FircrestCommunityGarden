@@ -1,0 +1,33 @@
+
+<md-content class="parent md-padding">
+  <div layout="row" layout-xs="column" ng-controller="blogCtrl" layout-wrap>
+    <div ng-repeat="post in blog|orderBy:'-date'" flex="33" flex-xs="100" flex-sm="100" flex-md="50" >
+      <md-card class="blog-post md-whiteframe-3dp">
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">{{post.title}}</span>
+            <span class="md-subhead"> {{post.date.toDateString()}} <br> {{post.author}} </span>
+          </md-card-title-text>
+          <md-card-title-media>
+            <img class="md-media-lg" ng-src={{post.img}}>
+          </md-card-title-media>
+        </md-card-title>
+        <md-card-content>
+          <p ng-bind-html="post.body">
+          </p>
+        </md-card-content>
+        <md-card-actions layout="row" layout-align="end center">
+          <md-button class="md-raised md-accent"href="mailto:?subject=Checkout%20Fircrest%20Community%20Garden's%20post:%20{{post.title}}&amp;body=Here%20at%20http://FircrestCommunityGarden.org%20{{post.body}}">
+            <md-icon md-svg-src="email"></md-icon>
+          </md-button>
+          <!--<md-button class="md-raised md-accent">
+            <md-icon md-svg-src="twitter"></md-icon>
+          </md-button>
+          <md-button class="md-raised md-accent">
+            <md-icon md-svg-src="facebook"></md-icon>
+          </md-button>-->
+        </md-card-actions>
+      </md-card>
+    </div>
+  </div>
+</md-content>

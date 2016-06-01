@@ -1,0 +1,19 @@
+<div style="100%">
+  <div ng-controller="homeCtrl" >
+    <img src="img/home/headerv1.svg"class="md-whiteframe-6dp" ></img>
+    <!-- Slider main container -->
+        <!-- Swiper -->
+    <ks-swiper-container autoplay="10000" swiper="swiper" on-ready="onReadySwiper(swiper)" loop="true" show-nav-buttons="true" pagination-is-active="true" direction="horizontal">
+
+      <ks-swiper-slide ng-repeat="s in [0,1,2,3,4,5,6,7,8,9,10]" style="height:600px" autoplay="5000">
+        <img ng-src="img/carousel/car_{{s}}.jpg" style="height:100%" class="md-whiteframe-10dp" >
+      </ks-swiper-slide>
+    </ks-swiper-container>
+  </div>
+</div>
+<div style="text-align: center" layout-margins>
+  <h1 style="text-align: center"> Fircrest Community Garden </h1>
+  <h3 style="text-align: center">
+   We are a group of gardeners who enjoy company and seeing something created from nothing. Look around the website and if you're interested make sure to contact us.
+  </h3> 
+</div>

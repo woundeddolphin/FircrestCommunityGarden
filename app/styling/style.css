@@ -1,0 +1,89 @@
+
+html, body {
+    position: relative;
+    height: 100%;
+}
+body {
+    background: #eee;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color:#000;
+    margin: 0;
+    padding: 0;
+} 
+
+/**
+ * Hide when Angular is not yet loaded and initialized
+ */
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+ 
+
+md-grid-list {
+  margin: 8px; }
+.greyBgGrid {
+  background: #ffa500; }
+.greenA200BgGrid {
+  background: #69F0AE; }
+.greenA700BgGrid {
+  background: #00E676; }
+.yellowBgGrid {
+  background: #ffff8d; }
+.blueBgGrid {
+  background: #84ffff; }
+.purpleBgGrid {
+  background: #b388ff; }
+.redBgGrid {
+  background: #ff8a80; }
+
+md-grid-tile {
+  transition: all 400ms ease-out 50ms; }
+
+.gridListPatch md-icon svg {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%; }
+
+.gridListPatch md-icon {
+  width: 50%;
+  height: 30%; }
+.gridListPatch md-icon svg {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%; }
+.gridListPatch  {
+  font-size: 200px; }
+.gridListPatch md-grid-list {
+  margin: 8px; }
+.gridListPatch md-grid-tile {
+  transition: all 300ms ease-out 50ms; }
+.gridListPatch md-grid-tile md-icon {
+  padding-bottom: 32px; }
+
+
+
+.swiper-container {
+    width: 100%;
+    height: 100%;  
+}
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
