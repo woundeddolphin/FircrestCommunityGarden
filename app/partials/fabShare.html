@@ -1,20 +1,21 @@
-
 <div ng-controller="fabCtrl">
-  <md-fab-speed-dial md-direction="left" md-fling class="md-fab-top-right md-fling"  ng-cloak style="position: fixed;" >
+  <md-fab-speed-dial md-direction="left" md-fling class="md-fab-top-right md-fling" ng-cloak style="position: fixed;">
     <md-fab-trigger>
       <md-button aria-label="menu" class="md-fab md-warn">
         <md-icon md-svg-src="share-variant"></md-icon>
       </md-button>
     </md-fab-trigger>
     <md-fab-actions>
-      <md-button aria-label="Twitter" class="md-fab md-raised md-mini" href="https://twitter.com/share" target="_blank" class="twitter-share-button" data-url="http://www.FircrestCommunityGarden.org">
-        <md-icon md-svg-src="twitter" aria-label="Twitter" ></md-icon>
+      <md-button aria-label="Twitter" class="md-fab md-raised md-mini" href="https://twitter.com/share" target="_blank" class="twitter-share-button"
+        data-url="http://www.FircrestCommunityGarden.org">
+        <md-icon md-svg-src="twitter" aria-label="Twitter"></md-icon>
       </md-button>
 
       <md-button aria-label="Facebook" class="md-fab md-raised md-mini" ng-click="share()">
         <md-icon md-svg-src="facebook" aria-label="Facebook"></md-icon>
       </md-button>
-      <md-button href="mailto:?subject=Checkout%20Fircrest%20Community%20Garden&amp;body=Here%20at%20http://FircrestCommunityGarden.org" ng-click="vm.shareByEmail()" aria-label="eMail" class="md-fab md-raised md-mini">
+      <md-button href="mailto:?subject=Checkout%20Fircrest%20Community%20Garden&amp;body=Here%20at%20http://FircrestCommunityGarden.org"
+        ng-click="vm.shareByEmail()" aria-label="eMail" class="md-fab md-raised md-mini">
         <md-icon md-svg-src="email" aria-label="eMail"></md-icon>
       </md-button>
     </md-fab-actions>
@@ -24,5 +25,5 @@
 <!--Twitter-->
 <script>
   !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
-</script>
 
+</script>

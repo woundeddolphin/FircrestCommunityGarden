@@ -1,87 +1,46 @@
 <!DOCTYPE html>
-<html lang="en-US" >
-  <head>
-    <!-- meta tags -->
-    <meta charset="utf-8">
-    <meta name="keywords" content="gardening,community,fircrest,garden">
-    <meta name="author" content="Justice Nichols">
-    <meta property="og:url"           content="http://www.Fircrestcommunitygarden.org" />
-    <meta property="og:type"          content="website" />
-    <meta property="og:title"         content="Fircrest Community Garden" />
-    <meta property="og:description"   content="Welcome to the offical website for Fircrest's Community Garden (WeDig Fircrest)" />
-    <meta property="og:image"         content="http://www.Fircrestcommunitygarden.org/img/gardenExamp.jpg" />
+<html lang="en-US">
 
-    <!-- links -->
-    <link rel="stylesheet" type="text/css" href="styling/style.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.0.9/angular-material.min.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css"/>
-    <link href='https://fonts.googleapis.com/css?family=Roboto:400,400italic' rel='stylesheet' type='text/css'>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-    <link rel="shortcut icon" href="img/icons/customicon.ico"/>
+<head>
+  <!-- meta tags -->
+  <meta charset="utf-8">
+  <meta name="keywords" content="gardening,community,fircrest,garden">
+  <meta name="author" content="Justice Nichols">
+  <meta property="og:url" content="http://www.Fircrestcommunitygarden.org" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Fircrest Community Garden" />
+  <meta property="og:description" content="Welcome to the offical website for Fircrest's Community Garden (WeDig Fircrest)"
+  />
+  <meta property="og:image" content="http://www.Fircrestcommunitygarden.org/img/gardenExamp.jpg" />
 
-    <script src='./bower_components/firebase/firebase.js'></script>
-    <title>Fircrest Community Garden</title>
-  </head>
+  <!-- links -->
+  <link rel="stylesheet" type="text/css" href="styling/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.0-rc4/angular-material.min.css"
+  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css" />
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,400italic' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link rel="shortcut icon" href="img/icons/customicon.ico" />
+  <title>Fircrest Community Garden</title>
+</head>
 
-  <body ng-app="mainApp" layout="column" ng-cloak>
-    <!-- toolbar -->
-    <div ng-include="'partials/toolbar.html'"></div>
+<body ng-app="mainApp" layout="column" ng-cloak>
+  <!-- toolbar -->
+  <div ng-include="'partials/toolbar.html'"></div>
 
-    <!-- content -->
-    <md-content>
-      <div>
-        <md-tabs class="md-primary md-dynamic-height md-whiteframe-4dp" ng-cloak>
-        <md-tab>
-          <md-tab-label>home</md-tab-label>
-          <md-tab-body>
-          <div ng-include="'partials/home.html'"></div>
-          </md-tab-body>
-        </md-tab>
+  <!-- content -->
+  <md-content flex>
+    <div ng-include="'partials/main.html'"></div>
+  </md-content>
 
-        <md-tab>
-          <md-tab-label>blog</md-tab-label>
-          <md-tab-body>
-          <div ng-include="'partials/blog.html'"></div>
-          </md-tab-body>
-        </md-tab>
+  <!-- scripts -->
 
-        <md-tab>
-          <md-tab-label>Meetings</md-tab-label>
-          <md-tab-body>
-          <div ng-include="'partials/meetings.html'"></div>
-          </md-tab-body>
-        </md-tab>
-
-        <md-tab>
-          <md-tab-label>engage</md-tab-label>
-          <md-tab-body>
-          <div ng-include="'partials/engage.html'"></div>
-          </md-tab-body>
-        </md-tab>
-
-        <md-tab>
-          <md-tab-label>calendar</md-tab-label>
-          <md-tab-body>
-          <div ng-include="'partials/calendar.html'"></div>
-          </md-tab-body>
-        </md-tab>
-
-        <md-tab>
-          <md-tab-label>about</md-tab-label>
-          <md-tab-body>
-          <div ng-include="'partials/about.html'"></div>
-          </md-tab-body>
-        </md-tab>
-
-        </md-tabs>
-
-        <div ng-include="'partials/fabShare.html'"></div>
-      </div>
-    </md-content>
-    <!-- scripts -->
-    <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
-    <script>
-      // Initialize Firebase
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular-animate.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular-aria.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.0.3/firebase.js"></script>
+  <script>
+    // Initialize Firebase
       var config = {
         apiKey: "AIzaSyAtJab9e3YPVK6BguoRRihqVpByH4woj7g",
         authDomain: "fircrestcommunitygarden.firebaseapp.com",
@@ -89,15 +48,16 @@
         storageBucket: "fircrestcommunitygarden.appspot.com",
       };
       firebase.initializeApp(config);
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular-animate.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular-aria.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.0.9/angular-material.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular-sanitize.min.js"></script>
-    <script src="./bower_components/angular-swiper/dist/angular-swiper.js"></script>
-    <script src="scripts/main.js"></script>
-    <script src="scripts/swiperConfig.js"></script>
-  </body>
+  </script>
+  <script src="https://cdn.firebase.com/libs/angularfire/2.0.0/angularfire.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.0-rc4/angular-material.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular-sanitize.min.js"></script>
+  <script src="./bower_components/angular-swiper/dist/angular-swiper.js"></script>
+  <script type="text/javascript" src="./bower_components/re-tree/re-tree.min.js"></script>
+  <script type="text/javascript" src="./bower_components/ng-device-detector/ng-device-detector.js"></script>
+  <script src="scripts/main.js"></script>
+  <script src="scripts/swiperConfig.js"></script>
+</body>
+
 </html>

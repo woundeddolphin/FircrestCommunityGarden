@@ -33,3 +33,4 @@ Thumbs.db
 /app/iconsets/*
 /app/img/*
 /angularfire
+/firebase-debug.log
