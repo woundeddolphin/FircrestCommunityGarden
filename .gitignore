@@ -32,3 +32,4 @@ Thumbs.db
 /app/bower_components/*
 /app/iconsets/*
 /app/img/*
+/angularfire
