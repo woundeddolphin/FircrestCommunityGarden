@@ -107,6 +107,13 @@
 
   app.controller('homeCtrl', ['$scope', 'swipeFact', function ($scope, swipeFact) {
     $scope.homeCarouselImages = swipeFact;
+    
+    $scope.swiper = {
+      
+    };
+    $scope.onReadySwiper = function(swiper){
+      swiper.initObservers();
+    };    
   }]);
 
   app.controller('TestCtrl', ['$scope', function ($scope) {
@@ -114,6 +121,7 @@
     $scope.next = function () {
       $scope.swiper.slideNext();
     };
+    
     $scope.onReadySwiper = function (swiper) {
       console.log('onReadySwiper');
       swiper.on('slideChangeStart', function () {
