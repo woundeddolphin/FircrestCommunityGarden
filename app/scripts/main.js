@@ -15,26 +15,27 @@
   app.factory("meetingFact", ["$firebaseArray", function ($firebaseArray) {
     var ref = firebase.database().ref().child('meetings');
     return $firebaseArray(ref);
-  }
-  ]);
+  }]);
 
   app.factory("blogFact", ["$firebaseArray", function ($firebaseArray) {
     var ref = firebase.database().ref().child('blog');
     return $firebaseArray(ref);
-  }
-  ]);
+  }]);
 
   app.factory("aboutFact", ["$firebaseArray", function ($firebaseArray) {
     var ref = firebase.database().ref().child('aboutCards');
     return $firebaseArray(ref);
-  }
-  ]);
+  }]);
+  
+  app.factory("homeFact", ["$firebaseArray", function ($firebaseArray) {
+    var ref = firebase.database().ref().child('homeQuote');
+    return $firebaseArray(ref);
+  }]);
 
   app.factory("swipeFact", ["$firebaseArray", function ($firebaseArray) {
     var ref = firebase.database().ref().child('swiper');
     return $firebaseArray(ref);
-  }
-  ]);
+  }]);
 
   app.controller('meetingCtrl', ['$scope', 'meetingFact', function ($scope, meetingFact, $firebaseArray) {
     $scope.blog = meetingFact;
@@ -105,9 +106,9 @@
   }]);
 
 
-  app.controller('homeCtrl', ['$scope', 'swipeFact', function ($scope, swipeFact) {
+  app.controller('homeCtrl', ['$scope', 'swipeFact', 'homeFact', function ($scope, swipeFact, homeFact) {
     $scope.homeCarouselImages = swipeFact;
-    
+    $scope.homeQuote = homeFact;
     $scope.swiper = {
       
     };

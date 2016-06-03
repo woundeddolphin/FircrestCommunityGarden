@@ -38,7 +38,8 @@ md-grid-list {
   background: #ff8a80; }
 
 md-grid-tile {
-  transition: all 400ms ease-out 50ms; }
+  transition: all 400ms ease-out 50ms; cursor: pointer;
+ }
 
 .gridListPatch md-icon svg {
   -webkit-border-radius: 50%;
