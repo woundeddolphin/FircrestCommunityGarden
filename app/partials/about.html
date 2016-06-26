@@ -1,6 +1,6 @@
 <md-content class="parent md-padding">
   <div layout-gt-xs="row" layout-xs="column" ng-controller="aboutCtrl" layout-wrap>
-    <div ng-repeat="people in aboutPeople|orderBy:'priority'" flex-sm="100" flex-gt-sm="50">
+    <div ng-repeat="people in aboutPeople|orderBy:'priority'" flex-sm="100" flex-gt-sm="50" ng-cloak>
 
       <md-card class="about-people md-whiteframe-3dp">
         <md-card-title>
@@ -9,7 +9,9 @@
             <span class="md-subhead"> {{people.title}} <br> {{people.contact}} </span>
           </md-card-title-text>
           <md-card-title-media>
-            <img class="md-media-lg" ng-src={{people.img}}>
+            <div class="md-media-lg">
+              <img class="md-media-lg" ng-src={{people.img}}>
+            </div>
           </md-card-title-media>
         </md-card-title>
         <md-card-content>
@@ -17,7 +19,7 @@
           </p>
         </md-card-content>
         <md-card-actions layout="row" layout-align="end center">
-          <md-button class="md-raised md-accent" target="_self" ng-href="mailto:{{people.contact}}">
+          <md-button class="md-raised md-accent" target="_self" ng-href="mailto:{{people.contact}}" aria-label="share email">
             <md-icon md-svg-src="email"></md-icon>
           </md-button>
         </md-card-actions>

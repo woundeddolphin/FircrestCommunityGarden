@@ -5,7 +5,7 @@ html, body {
 }
 body {
     background: #eee;
-    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
     color:#000;
     margin: 0;
@@ -18,29 +18,25 @@ body {
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important;
 }
- 
+
+.card-media {
+  background-color: #999999; 
+  height: 152px; 
+  }
 
 md-grid-list {
   margin: 8px; }
-.greyBgGrid {
-  background: #ffa500; }
 .greenA200BgGrid {
   background: #69F0AE; }
 .greenA700BgGrid {
   background: #00E676; }
-.yellowBgGrid {
-  background: #ffff8d; }
-.blueBgGrid {
-  background: #84ffff; }
-.purpleBgGrid {
-  background: #b388ff; }
-.redBgGrid {
-  background: #ff8a80; }
+.tilePadding {
+  padding-top: 48px;
+}
 
 md-grid-tile {
   transition: all 400ms ease-out 50ms; cursor: pointer;
  }
-
 .gridListPatch md-icon svg {
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
@@ -71,7 +67,7 @@ md-grid-tile {
 .swiper-slide {
     text-align: center;
     font-size: 18px;
-    background: #fff;
+    background: #fafafa;
     
     /* Center slide text vertically */
     display: -webkit-box;

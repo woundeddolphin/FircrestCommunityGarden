@@ -1,57 +1,14 @@
 <div layout-padding ng-controller="engageGridList" id="popupContainer">
-  <md-grid-list
-        md-cols-xs="1" md-cols-sm="2" md-cols-md="4" md-cols-gt-md="6"
-        md-row-height-gt-md="1:1" md-row-height="2:2"
-        md-gutter="12px" md-gutter-gt-sm="8px" >
-
-    <md-grid-tile class="greenA200BgGrid" style="padding-top:48px;" md-rowspan-xs="2" md-rowspan-sm="2" md-rowspan="3" md-colspan="2" md-colspan-sm="1" md-colspan-xs="1" ng-click="showPatch($event)">
+  <md-grid-list 
+    md-cols-xs="1" md-cols-sm="2" md-cols-md="4" md-cols-gt-md="6" 
+    md-row-height-gt-md="1:1" md-row-height="2:2" md-gutter="12px" md-gutter-gt-sm="8px">
+    <md-grid-tile 
+      ng-repeat="tile in tiles" ng-class="tile.color" md-colspan-gt-sm="{{tile.colspan}}" 
+      md-rowspan-gt-sm="{{tile.rowspan}}" ng-click="showWeed($event)">
       <md-grid-tile-header>
-        <h3>Adopt a Patch</h3>
+        <h3>{{tile.header}}</h3>
       </md-grid-tile-header>
-      <img src="img/icons/adoptPatch.svg" style="padding-top:48px;width:75%; height:auto"> 
+      <img ng-src="{{tile.img}}" ng-style="{'width' : tile.width, 'height' : tile.height}" class="tilePadding">
     </md-grid-tile>
-
-    <md-grid-tile class="greenA700BgGrid md-primary" ng-click="showWeed($event)">
-      <md-grid-tile-header>
-        <h3>Weed for Us</h3>
-      </md-grid-tile-header>
-      <img src="img/icons/nature-people.svg" style="padding-top:48px;width:50%; height:auto"> 
-    </md-grid-tile>
-
-    <md-grid-tile class="greenA200BgGrid" ng-click="showTour($event)">
-      <md-grid-tile-header>
-        <h3>Give Tours</h3>
-      </md-grid-tile-header>
-      <img src="img/icons/map.svg" style="padding-top:48px;width:65%; height:auto"> 
-    </md-grid-tile>
-
-    <md-grid-tile class="greenA700BgGrid" md-rowspan="2" ng-click="showTeach($event)">
-      <md-grid-tile-header>
-        <h3>Become a Teacher</h3>
-      </md-grid-tile-header>
-      <img src="img/icons/food-apple.svg" style="padding-top:48px;width:65%; height:auto"> 
-    </md-grid-tile>
-
-    <md-grid-tile class="greenA200BgGrid" md-rowspan="2" ng-click="showClass($event)">
-      <md-grid-tile-header>
-        <h3>Attend Classes</h3>
-      </md-grid-tile-header>
-      <img src="img/icons/chair-school.svg" style="padding-top:48px;width:65%; height:auto"> 
-    </md-grid-tile>
-
-    <md-grid-tile class="greenA700BgGrid" md-rowspan="2" md-colspan="2" md-colspan-sm="1" md-colspan-xs="1" ng-click="showDonate($event)">
-      <md-grid-tile-header>
-        <h3>Donate</h3>
-      </md-grid-tile-header>
-      <img src="img/icons/gift.svg" style="padding-top:48px;width:65%; height:auto"> 
-    </md-grid-tile>
-
-    <md-grid-tile class="greenA200BgGrid" md-colspan="2" md-colspan-sm="1" md-colspan-xs="1" ng-click="showShop($event)">
-      <md-grid-tile-header>
-        <h3>Buy Supplies</h3>
-      </md-grid-tile-header>
-      <img src="img/icons/shopping.svg" style="padding-top:48px;width:40%; height:auto"> 
-    </md-grid-tile>
-
   </md-grid-list>
 </div>

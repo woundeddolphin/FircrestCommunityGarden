@@ -1,11 +1,11 @@
 <div style="100%" ng-controller="homeCtrl">
   <div>
-    <img src="img/home/headerv1.svg" class="md-whiteframe-6dp"></img>
+    <img ng-src="{{header.$value}}"></img>
     <!-- Slider main container -->
     <!-- Swiper -->
     <ks-swiper-container swiper="swiper" on-ready="onReadySwiper(swiper)" slides-per-view="1" effect="flip" slides-per-column="1"
       space-between="0" pagination-is-active="true" pagination-clickable="true" show-nav-buttons="true" loop="true" autoplay="4000"
-      initial-slide="0" direction="horizontal">
+      initial-slide="0" direction="horizontal" preload="false" lazyLoading="true" >
 
       <ks-swiper-slide ng-repeat="image in homeCarouselImages" style="height:400px">
         <img ng-src="{{image.$value}}" style="height:100%" class="md-whiteframe-10dp">
@@ -13,9 +13,6 @@
     </ks-swiper-container>
   </div>
   <div style="text-align: center;padding-left:15%;padding-right:15%" layout-margins ng-cloak>
-    <h1 style="text-align: center"> Fircrest Community Garden </h1>
-    <h3 style="text-align: center" style="" md-padding>
-      {{homeQuote[0].$value}}
-    </h3>
+    <span ng-bind-html="homeQuote.$value"> </span>
   </div>
 </div>

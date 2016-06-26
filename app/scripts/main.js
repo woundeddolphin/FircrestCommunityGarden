@@ -1,16 +1,15 @@
 (function () {
   'use strict';
-  var curAdd = "https://fircrestcommunitygarden.firebaseapp.com/ ";
-
   var app = angular.module('mainApp', ['ksSwiper', 'ngMaterial', 'ngSanitize', 'firebase']);
 
   app.config(['$mdThemingProvider', '$mdIconProvider', function ($mdThemingProvider, $mdIconProvider) {
     $mdThemingProvider.theme('default')
-      .primaryPalette('green') // specify primary color, all
+      .primaryPalette('green')
       .accentPalette('red');
     $mdIconProvider
-      .defaultIconSet('iconsets/mdi.svg');
+      .defaultIconSet('mdi.svg');
   }]);
+
 
   app.factory("meetingFact", ["$firebaseArray", function ($firebaseArray) {
     var ref = firebase.database().ref().child('meetings');
@@ -26,10 +25,15 @@
     var ref = firebase.database().ref().child('aboutCards');
     return $firebaseArray(ref);
   }]);
-  
-  app.factory("homeFact", ["$firebaseArray", function ($firebaseArray) {
+
+  app.factory("homeFact", ["$firebaseObject", function ($firebaseObject) {
     var ref = firebase.database().ref().child('homeQuote');
-    return $firebaseArray(ref);
+    return $firebaseObject(ref);
+  }]);
+
+  app.factory("headerFact", ["$firebaseObject", function ($firebaseObject) {
+    var ref = firebase.database().ref().child('header');
+    return $firebaseObject(ref);
   }]);
 
   app.factory("swipeFact", ["$firebaseArray", function ($firebaseArray) {
@@ -37,10 +41,14 @@
     return $firebaseArray(ref);
   }]);
 
+  app.factory("engageFact", ["$firebaseArray", function ($firebaseArray) {
+    var ref = firebase.database().ref().child('engage');
+    return $firebaseArray(ref);
+  }]);
+
   app.controller('meetingCtrl', ['$scope', 'meetingFact', function ($scope, meetingFact, $firebaseArray) {
     $scope.blog = meetingFact;
   }]);
-
 
   app.controller('blogCtrl', ['$scope', 'blogFact', function ($scope, blogFact) {
     $scope.blog = blogFact;
@@ -50,7 +58,8 @@
     $scope.aboutPeople = aboutFact;
   }]);
 
-
+  app.controller('tabsCtrl', ['$scope', function ($scope) {
+  }]);
 
   app.controller('fabCtrl', ['$scope', function ($scope) {
     $scope.shareByEmail = function () {
@@ -66,7 +75,7 @@
     };
   }]);
 
-  app.controller('engageGridList', ['$scope', '$mdDialog', '$mdMedia', function ($scope, $mdDialog, $mdMedia) {
+  app.controller('engageGridList', ['$scope', '$mdDialog', '$mdMedia', 'engageFact', function ($scope, $mdDialog, $mdMedia, engageFact) {
     $scope.showWeed = function (ev) {
       $mdDialog.show(
         $mdDialog.alert()
@@ -80,55 +89,25 @@
       );
     };
 
-    $scope.showPatch = function (ev) {
-      $scope.showWeed(ev);
-    };
+    $scope.tiles = engageFact;
 
-    $scope.showTour = function (ev) {
-      $scope.showWeed(ev);
-    };
+    $scope.showPatch = function (ev) { $scope.showWeed(ev); };
+    $scope.showTour = function (ev) { $scope.showWeed(ev); };
+    $scope.showTeach = function (ev) { $scope.showWeed(ev); };
+    $scope.showClass = function (ev) { $scope.showWeed(ev); };
+    $scope.showDonate = function (ev) { $scope.showWeed(ev); };
+    $scope.showShop = function (ev) { $scope.showWeed(ev); };
 
-    $scope.showTeach = function (ev) {
-      $scope.showWeed(ev);
-    };
-
-    $scope.showClass = function (ev) {
-      $scope.showWeed(ev);
-    };
-
-    $scope.showDonate = function (ev) {
-      $scope.showWeed(ev);
-    };
-
-    $scope.showShop = function (ev) {
-      $scope.showWeed(ev);
-    };
   }]);
 
 
-  app.controller('homeCtrl', ['$scope', 'swipeFact', 'homeFact', function ($scope, swipeFact, homeFact) {
+  app.controller('homeCtrl', ['$scope', 'swipeFact', 'homeFact', 'headerFact', function ($scope, swipeFact, homeFact, headerFact) {
     $scope.homeCarouselImages = swipeFact;
     $scope.homeQuote = homeFact;
-    $scope.swiper = {
-      
-    };
-    $scope.onReadySwiper = function(swiper){
-      swiper.initObservers();
-    };    
-  }]);
-
-  app.controller('TestCtrl', ['$scope', function ($scope) {
+    $scope.header = headerFact;
     $scope.swiper = {};
-    $scope.next = function () {
-      $scope.swiper.slideNext();
-    };
-    
-    $scope.onReadySwiper = function (swiper) {
-      console.log('onReadySwiper');
-      swiper.on('slideChangeStart', function () {
-        console.log('slideChangeStart');
-      });
-    };
+    $scope.onReadySwiper = function (swiper) { swiper.initObservers(); };
+
   }]);
 
   window.fbAsyncInit = function () {
@@ -146,6 +125,7 @@
     js.src = "//connect.facebook.net/en_US/sdk.js";
     fjs.parentNode.insertBefore(js, fjs);
   } (document, 'script', 'facebook-jssdk'));
+  
 })();
 
 

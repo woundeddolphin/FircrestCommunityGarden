@@ -7,16 +7,16 @@
     </md-fab-trigger>
     <md-fab-actions>
       <md-button aria-label="Twitter" class="md-fab md-raised md-mini" href="https://twitter.com/share" target="_blank" class="twitter-share-button"
-        data-url="http://www.FircrestCommunityGarden.org">
+        data-url="http://www.WeDigFircrest.org" aria-label="share twitter">
         <md-icon md-svg-src="twitter" aria-label="Twitter"></md-icon>
       </md-button>
 
-      <md-button aria-label="Facebook" class="md-fab md-raised md-mini" ng-click="share()">
+      <md-button aria-label="Facebook" class="md-fab md-raised md-mini" ng-click="share()" aria-label="share facebook">
         <md-icon md-svg-src="facebook" aria-label="Facebook"></md-icon>
       </md-button>
       <md-button href="mailto:?subject=Checkout%20Fircrest%20Community%20Garden&amp;body=Here%20at%20http://FircrestCommunityGarden.org"
-        ng-click="vm.shareByEmail()" aria-label="eMail" class="md-fab md-raised md-mini">
-        <md-icon md-svg-src="email" aria-label="eMail"></md-icon>
+        ng-click="vm.shareByEmail()"  class="md-fab md-raised md-mini" aria-label="share email">
+        <md-icon md-svg-src="email"></md-icon>
       </md-button>
     </md-fab-actions>
   </md-fab-speed-dial>

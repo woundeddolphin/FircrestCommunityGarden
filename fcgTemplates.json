@@ -1,0 +1,31 @@
+
+#aboutCards
+, {
+    "body" : "Retired, but permanently beta master gardener intern and social media consultant.  Passionate about gardening and community gardens.",
+    "contact" : "Harry@FircrestCommunityGarden.org",
+    "img" : "https://firebasestorage.googleapis.com/v0/b/fircrestcommunitygarden.appspot.com/o/aboutPhotos%2FaboutHarryHayward.jpg?alt=media&token=50f7549c-db33-4fd5-a34d-96491362fce7",
+    "name" : "Harry Hayward",
+    "priority" : "20",
+    "title" : "Master Gardener Intern"
+  }
+
+#blog
+  , {
+    "author" : "Justice Nichols",
+    "body" : "This is the second post in the new Fircrest Community Garden webpage. The website has finally been pushed into production but there is not yet a proper domain for it. The website has most intial functionality implemented but is missing any forms that have not been created, missing emails for officers, missing some pictures of officers, and missing links to relevant Most of this has to be done in meetings, feel free to contribute and attendthem.",
+    "date" : "6/1/16",
+    "img" : "img/icons/web.svg",
+    "title" : "Second Post"
+  }
+
+  #meetings
+  , {
+    "author" : "",
+    "body" : "",
+    "date" : "2016-01-18T08:00:00.000Z",
+    "host" : "",
+    "img" : "img/blog/meeting.png",
+    "intros" : [ "" ],
+    "title" : "",
+    "venue" : ""
+  }

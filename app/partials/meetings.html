@@ -1,6 +1,6 @@
 <md-content class="parent md-padding">
   <div layout="row" layout-xs="column" ng-controller="meetingCtrl" layout-wrap>
-    <div ng-repeat="post in blog|orderBy:'-date'" flex-xs="100" flex="33" flex-sm="100" flex-md="50">
+    <div ng-repeat="post in blog|orderBy:'-date'" flex-xs="100" flex="33" flex-sm="100" flex-md="50" ng-cloak>
 
       <md-card class="blog-post md-whiteframe-3dp">
         <md-card-title>
@@ -11,7 +11,9 @@
             </span>
           </md-card-title-text>
           <md-card-title-media>
-            <img class="md-media-lg" ng-src={{post.img}}>
+            <div class="md-media-lg">
+              <img class="md-media-lg cardImg" ng-src={{post.img}}>
+            </div>
           </md-card-title-media>
         </md-card-title style="padding-bottom: 0">
         <md-card-content style="padding-top: 0">

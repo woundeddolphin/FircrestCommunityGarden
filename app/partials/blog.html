@@ -8,7 +8,9 @@
             <span class="md-subhead"> {{post.date.toDateString()}} <br> {{post.author}} </span>
           </md-card-title-text>
           <md-card-title-media>
-            <img class="md-media-lg" ng-src={{post.img}}>
+            <div class="md-media-lg">
+              <img class="md-media-lg" ng-src={{post.img}}>
+            </div>
           </md-card-title-media>
         </md-card-title>
         <md-card-content>
@@ -16,8 +18,8 @@
           </p>
         </md-card-content>
         <md-card-actions layout="row" layout-align="end center">
-          <md-button class="md-raised md-accent" ng-href="mailto:?subject=Checkout%20Fircrest%20Community%20Garden's%20post:%20{{post.title}}&amp;body=Here%20at%20http://FircrestCommunityGarden.org%20{{post.body}}">
-            <md-icon md-svg-src="email"></md-icon>
+          <md-button class="md-raised md-accent" ng-href="mailto:?subject=Checkout%20Fircrest%20Community%20Garden's%20post:%20{{post.title}}&amp;body=Here%20at%20http://FircrestCommunityGarden.org%20{{post.body}}" aria-label="share email">
+            <md-icon md-svg-src="email" aria-label="share email"></md-icon>
           </md-button>
           <!--<md-button class="md-raised md-accent">
             <md-icon md-svg-src="twitter"></md-icon>
