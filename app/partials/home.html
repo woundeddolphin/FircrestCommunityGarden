@@ -1,18 +1,29 @@
-<div style="100%" ng-controller="homeCtrl">
-  <div>
-    <img ng-src="{{header.$value}}"></img>
-    <!-- Slider main container -->
-    <!-- Swiper -->
-    <ks-swiper-container swiper="swiper" on-ready="onReadySwiper(swiper)" slides-per-view="1" effect="flip" slides-per-column="1"
-      space-between="0" pagination-is-active="true" pagination-clickable="true" show-nav-buttons="true" loop="true" autoplay="4000"
-      initial-slide="0" direction="horizontal" preload="false" lazyLoading="true" >
+<div ng-controller="homeCtrl">
+  <img ng-src="{{header.$value}}"></img>
+  <div layout="row" layout-wrap>
+    <div flex="0" flex-gt-sm="25"></div>
+    <div flex="100" flex-gt-sm="50">
+      <!-- Slider main container -->
+      <!-- Swiper -->
+      <div>
+        <ks-swiper-container swiper="swiper" on-ready="onReadySwiper(swiper)" slides-per-view="auto" effect="flip" slides-per-column="1"
+          space-between="100" pagination-is-active="true" pagination-clickable="true" show-nav-buttons="true" loop="true" autoplay="8000"
+          initial-slide="0" direction="horizontal" preload="false" lazyLoading="true" effect="flip" loopedSlides="5">
 
-      <ks-swiper-slide ng-repeat="image in homeCarouselImages" style="height:400px">
-        <img ng-src="{{image.$value}}" style="height:100%" class="md-whiteframe-10dp">
-      </ks-swiper-slide>
-    </ks-swiper-container>
+          <ks-swiper-slide ng-repeat="image in homeCarouselImages" style="height:50%">
+            <img ng-src="{{image.$value}}" style="height:100%" class="md-whiteframe-10dp">
+          </ks-swiper-slide>
+        </ks-swiper-container>
+      </div>
+    </div>
+    <div flex="100" flex-gt-sm="25">
+      <div class="fb-page" data-href="https://www.facebook.com/Wedigfircrest/" data-tabs="timeline" data-small-header="true" data-height="600" data-adapt-container-width="true"
+        data-hide-cover="false" data-show-facepile="true">
+        <blockquote cite="https://www.facebook.com/Wedigfircrest/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/Wedigfircrest/">WeDig Fircrest</a></blockquote>
+      </div>
+    </div>
   </div>
-  <div style="text-align: center;padding-left:15%;padding-right:15%" layout-margins ng-cloak>
-    <span ng-bind-html="homeQuote.$value"> </span>
-  </div>
+</div>
+<div style="text-align: center;padding-left:15%;padding-right:15%" layout-margins ng-cloak>
+  <span ng-bind-html="homeQuote.$value"> </span>
 </div>
