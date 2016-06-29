@@ -1,13 +1,42 @@
 (function () {
   'use strict';
-  var app = angular.module('mainApp', ['ksSwiper', 'ngMaterial', 'ngSanitize', 'firebase']);
+  var app = angular.module('mainApp', ['ksSwiper', 'ngMaterial', 'ngSanitize', 'firebase','ngRoute']);
 
-  app.config(['$mdThemingProvider', '$mdIconProvider', function ($mdThemingProvider, $mdIconProvider) {
+  app.config(['$mdThemingProvider', '$mdIconProvider', '$routeProvider', function ($mdThemingProvider, $mdIconProvider,$routeProvider) {
     $mdThemingProvider.theme('default')
       .primaryPalette('green')
       .accentPalette('red');
     $mdIconProvider
       .defaultIconSet('mdi.svg');
+    $routeProvider
+    .when('/home', {
+      templateUrl: 'partials/home.html',
+      controller: 'homeCtrl',
+    })
+    .when('/blog', {
+      templateUrl: 'partials/blog.html',
+      controller: 'blogCtrl',
+    })
+    .when('/meetings', {
+      templateUrl: 'partials/meetings.html',
+      controller: 'meetingCtrl',
+    })
+    .when('/engage', {
+      templateUrl: 'partials/engage.html',
+      controller: 'engageCtrl',
+    })
+    .when('/calendar', {
+      templateUrl: 'partials/calendar.html',
+      controller: 'calendarCtrl',
+    })
+    .when('/about', {
+      templateUrl: 'partials/about.html',
+      controller: 'aboutCtrl',
+    })
+    .otherwise({
+      redirectTo: '/home'
+    });
+
   }]);
 
 
