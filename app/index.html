@@ -3,6 +3,7 @@
 
 <head>
   <!-- meta tags -->
+  <base href="/">
   <meta charset="utf-8">
   <meta name=viewport content="width=device-width, initial-scale=1">
   <meta name="keywords" content="gardening,community,fircrest,garden,wedig">
@@ -25,18 +26,10 @@
   <title>WeDig Fircrest Community Garden</title>
 </head>
 
-<body ng-app="mainApp" layout="column" ng-cloak>
+<body ng-app="mainApp" layout="column" ng-cloak ng-controller="appCtrl">
 
 <!-- facebook sdk -->
   <div id="fb-root"></div>
-  <script>(function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6&appId=608009469364127";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-  </script>
   <!-- toolbar -->
   <div ng-include="'partials/toolbar.html'"></div>
 
@@ -47,9 +40,12 @@
 
   <!-- scripts -->
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular-animate.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular-aria.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular-sanitize.min.js"></script>
+
   <script src="https://www.gstatic.com/firebasejs/3.0.3/firebase.js"></script>
   <script>
     // Initialize Firebase
@@ -71,9 +67,7 @@
   </script>
   <script src="https://cdn.firebase.com/libs/angularfire/2.0.1/angularfire.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.0-rc.5/angular-material.min.js"></script>
-  <script stc="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular-sanitize.min.js"></script>
   <script src="./bower_components/angular-swiper/dist/angular-swiper.js"></script>
   <script src="scripts/main.js"></script>
 </body>

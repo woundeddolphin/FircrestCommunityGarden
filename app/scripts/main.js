@@ -2,43 +2,104 @@
   'use strict';
   var app = angular.module('mainApp', ['ksSwiper', 'ngMaterial', 'ngSanitize', 'firebase','ngRoute']);
 
-  app.config(['$mdThemingProvider', '$mdIconProvider', '$routeProvider', function ($mdThemingProvider, $mdIconProvider,$routeProvider) {
+  app.config(['$mdThemingProvider', '$mdIconProvider', '$routeProvider', '$locationProvider', function ($mdThemingProvider, $mdIconProvider,$routeProvider,$locationProvider) {
     $mdThemingProvider.theme('default')
       .primaryPalette('green')
       .accentPalette('red');
     $mdIconProvider
       .defaultIconSet('mdi.svg');
     $routeProvider
-    .when('/home', {
-      templateUrl: 'partials/home.html',
-      controller: 'homeCtrl',
-    })
-    .when('/blog', {
-      templateUrl: 'partials/blog.html',
-      controller: 'blogCtrl',
-    })
-    .when('/meetings', {
-      templateUrl: 'partials/meetings.html',
-      controller: 'meetingCtrl',
-    })
-    .when('/engage', {
-      templateUrl: 'partials/engage.html',
-      controller: 'engageCtrl',
-    })
-    .when('/calendar', {
-      templateUrl: 'partials/calendar.html',
-      controller: 'calendarCtrl',
-    })
-    .when('/about', {
-      templateUrl: 'partials/about.html',
-      controller: 'aboutCtrl',
-    })
-    .otherwise({
-      redirectTo: '/home'
-    });
+      .when('/', {
+        templateUrl: 'partials/home.html',
+        controller: 'homeCtrl'
+      })
+      .when('/blog', {
+        templateUrl: 'partials/blog.html',
+        controller: 'blogCtrl'
+      })
+      .when('/meetings', {
+        templateUrl: 'partials/meetings.html',
+        controller: 'meetingCtrl'
+      })
+      .when('/engage', {
+        templateUrl: 'partials/engage.html',
+        controller: 'engageCtrl'
+      })
+      .when('/calendar', {
+        templateUrl: 'partials/calendar.html',
+        controller: 'calendarCtrl'
+      })
+      .when('/about', {
+        templateUrl: 'partials/about.html',
+        controller: 'aboutCtrl'
+      })
+      .otherwise({
+        redirectTo: '/'
+      });
+      $locationProvider.html5Mode(true);
+    }]);
 
+
+    app.run(['$route', function($route)  {
+      $route.reload();
+    }]);
+ 
+  app.controller('tabsCtrl', ['$scope','$location', '$window','$rootScope', function ($scope,$location,$window,$rootScope) {
+    $window.fbAsyncInit = function() {
+      FB.init({ 
+        appId: '608009469364127',
+        status: true, 
+        cookie: true, 
+        xfbml: true,
+        version: 'v2.4'
+      });
+    };
+    (function(d, s, id){
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {return;}
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+    $scope.$on('$viewContentLoaded', function(){
+      FB.XFBML.parse();
+    });
   }]);
 
+  app.controller('appCtrl', function($scope,$mdSidenav,$location){
+    $scope.openLeftMenu = function() {
+      $mdSidenav('left').toggle();
+    };
+    $scope.homeClick = function(){
+      $location.url('/');
+      $scope.openLeftMenu();
+    };
+    $scope.blogClick = function(){
+      $location.url('/blog');
+      $scope.openLeftMenu();      
+    };
+    $scope.meetingsClick = function(){
+      $location.url('/meetings'); 
+      $scope.openLeftMenu();      
+    };
+    $scope.engageClick = function(){
+      $location.url('/engage');
+      $scope.openLeftMenu();      
+    };
+    $scope.calendarClick = function(){
+      $location.url('/calendar');
+      $scope.openLeftMenu();      
+    };
+    $scope.aboutClick = function(){
+      $location.url('/about');
+      $scope.openLeftMenu();      
+    };
+
+  });
+
+  app.controller('calendarCtrl', function($scope){
+  });
 
   app.factory("meetingFact", ["$firebaseArray", function ($firebaseArray) {
     var ref = firebase.database().ref().child('meetings');
@@ -87,8 +148,6 @@
     $scope.aboutPeople = aboutFact;
   }]);
 
-  app.controller('tabsCtrl', ['$scope', function ($scope) {
-  }]);
 
   app.controller('fabCtrl', ['$scope', function ($scope) {
     $scope.shareByEmail = function () {
@@ -104,7 +163,7 @@
     };
   }]);
 
-  app.controller('engageGridList', ['$scope', '$mdDialog', '$mdMedia', 'engageFact', function ($scope, $mdDialog, $mdMedia, engageFact) {
+  app.controller('engageCtrl', ['$scope', '$mdDialog', '$mdMedia', 'engageFact', function ($scope, $mdDialog, $mdMedia, engageFact) {
     $scope.showWeed = function (ev) {
       $mdDialog.show(
         $mdDialog.alert()
@@ -126,7 +185,6 @@
     $scope.showClass = function (ev) { $scope.showWeed(ev); };
     $scope.showDonate = function (ev) { $scope.showWeed(ev); };
     $scope.showShop = function (ev) { $scope.showWeed(ev); };
-
   }]);
 
 
@@ -136,16 +194,8 @@
     $scope.header = headerFact;
     $scope.swiper = {};
     $scope.onReadySwiper = function (swiper) { swiper.initObservers(); };
-
   }]);
-
-  window.fbAsyncInit = function () {
-    FB.init({
-      appId: '608009469364127',
-      xfbml: true,
-      version: 'v2.6'
-    });
-  };
+  
 })();
 
 

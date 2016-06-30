@@ -1,48 +1,43 @@
 <div ng-controller="tabsCtrl">
-    <md-tabs class="md-primary md-dynamic-height" md-stretch-tabs="always" ng-cloak >
-        <md-tab md-on-select="homeClick()">
-            <md-tab-label>home</md-tab-label>
-            <md-tab-body>
-                <div ng-include="'partials/home.html'"></div>
-            </md-tab-body>
-        </md-tab>
+    <div>
+        <div>
+            <md-sidenav md-component-id="left" class="md-sidenav-left" layout-wrap>
+                <md-list>
+                    <md-list-item ng-click="homeClick()">
+                        <md-icon md-svg-src="home" ng-click="homeClick()"></md-icon>
+                        <p>Home</p>
+                    </md-list-item>
 
-        <md-tab md-on-select="blogClick()">
-            <md-tab-label>blog</md-tab-label>
-            <md-tab-body>
-                <div ng-include="'partials/blog.html'"></div>
-            </md-tab-body>
-        </md-tab>
+                    <md-list-item ng-click="blogClick()">
+                        <md-icon md-svg-src="message-text"></md-icon>
+                        <p>Blog</p>
+                    </md-list-item>
 
-        <md-tab md-on-select="meetingsClick()">
-            <md-tab-label>Meetings</md-tab-label>
-            <md-tab-body>
-                <div ng-include="'partials/meetings.html'"></div>
-            </md-tab-body>
-        </md-tab>
+                    <md-list-item ng-click="meetingsClick()">
+                        <md-icon md-svg-src="timetable"></md-icon>
+                        <p>Meetings</p>
+                    </md-list-item>
 
-        <md-tab md-on-select="enageClick()">
-            <md-tab-label>engage</md-tab-label>
-            <md-tab-body>
-                <div ng-include="'partials/engage.html'"></div>
-            </md-tab-body>
-        </md-tab>
+                    <md-list-item ng-click="engageClick()">
+                        <md-icon md-svg-src="library"></md-icon>
+                        <p>Engage</p>
+                    </md-list-item>
 
-        <md-tab md-on-select="calendarClick()">
-            <md-tab-label>calendar</md-tab-label>
-            <md-tab-body>
-                <div ng-include="'partials/calendar.html'"></div>
-            </md-tab-body>
-        </md-tab>
+                    <md-list-item ng-click="calendarClick()">
+                        <md-icon md-svg-src="calendar"></md-icon>
+                        <p>Calendar</p>
+                    </md-list-item>
+                    <md-divider></md-divider>
 
-        <md-tab md-on-select="aboutClick()">
-            <md-tab-label>about</md-tab-label>
-            <md-tab-body>
-                <div ng-include="'partials/about.html'"></div>
-            </md-tab-body>
-        </md-tab>
-
-    </md-tabs>
+                    <md-list-item ng-click="aboutClick()">
+                        <md-icon md-svg-src="help-circle"></md-icon>
+                        <p>About</p>
+                    </md-list-item>                                                                                                   
+                </md-list>
+            </md-sidenav>
+        </div>      
+        <div ng-view></div>
+    </div>
 
     <div ng-include="'partials/fabShare.html'"></div>
 </div>
