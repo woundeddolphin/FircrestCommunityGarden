@@ -6,14 +6,13 @@
       <!-- Slider main container -->
       <!-- Swiper -->
       <div>
-        <ks-swiper-container swiper="swiper" on-ready="onReadySwiper(swiper)" slides-per-view="auto" effect="flip" slides-per-column="1"
-          space-between="100" pagination-is-active="true" pagination-clickable="true" show-nav-buttons="true" loop="true" autoplay="8000"
-          initial-slide="0" direction="horizontal" preload="false" lazyLoading="true" effect="flip" loopedSlides="5">
-
+        <ks-swiper-container ng-if="arrayLoaded" swiper="swiper" on-ready="onReadySwiper(swiper)" space-between="500" 
+          pagination-is-active="true" pagination-clickable="true" show-nav-buttons="true" loop="true" autoplay="8000"
+          preload="false" lazyLoading="true" loopedSlides="8">
           <ks-swiper-slide ng-repeat="image in homeCarouselImages">
             <img ng-src="{{image.$value}}" class="swiper-image">
           </ks-swiper-slide>
-        </ks-swiper-container>
+        </ks-swiper-container>    
       </div>
     </div>
     <div flex-gt-sm="0" flex="25"></div>

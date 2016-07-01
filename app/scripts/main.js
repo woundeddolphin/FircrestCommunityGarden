@@ -44,7 +44,7 @@
     }]);
 
     app.controller('createBlogPostCtrl', function($scope) {
-      $scope.project = {
+      $scope.post = {
       };
     });
 
@@ -52,7 +52,7 @@
       $route.reload();
     }]);
  
-  app.controller('tabsCtrl', ['$scope','$location', '$window','$rootScope', function ($scope,$location,$window,$rootScope) {
+  app.controller('mainCtrl', ['$scope','$location', '$window','$rootScope', function ($scope,$location,$window,$rootScope) {
 
     $window.fbAsyncInit = function() {
       if (typeof FB !== 'undefined'){
@@ -145,7 +145,7 @@
 
   app.factory("swipeFact", ["$firebaseArray", function ($firebaseArray) {
     var ref = firebase.database().ref().child('swiper');
-    return $firebaseArray(ref);
+    return [$firebaseArray(ref),ref];
   }]);
 
   app.factory("engageFact", ["$firebaseArray", function ($firebaseArray) {
@@ -211,13 +211,34 @@
   }]);
 
 
-  app.controller('homeCtrl', ['$scope', 'swipeFact', 'homeFact', 'headerFact', function ($scope, swipeFact, homeFact, headerFact) {
-    $scope.homeCarouselImages = swipeFact;
+  app.controller('homeCtrl', ['$scope', 'swipeFact', 'homeFact', 'headerFact', '$timeout', function ($scope, swipeFact, homeFact, headerFact,$timeout) {
+    $scope.homeCarouselImages = swipeFact[0];
+    $scope.arrayLoaded = false;
+    swipeFact[1].on("value", function() {
+      $scope.arrayLoaded = true;
+    });
     $scope.homeQuote = homeFact;
     $scope.header = headerFact;
-    $scope.swiper = {};
-    $scope.onReadySwiper = function (swiper) { swiper.initObservers(); };
+    $scope.swiper = new Swiper('.swiper-container', {
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        spaceBetween: 500,
+        loopedSlides: 8,
+        loop: true,
+        autoplay: 8000,
+
+        // Disable preloading of all images
+        preloadImages: false,
+        // Enable lazy loading
+        lazyLoading: true
+    });
+    $scope.onReadySwiper = function(swiper) {
+        swiper.initObservers();
+    };
   }]);
+
   
 })();
 
