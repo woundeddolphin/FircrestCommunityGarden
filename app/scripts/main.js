@@ -1,6 +1,6 @@
 (function () {
   'use strict';
-  var app = angular.module('mainApp', ['ksSwiper', 'ngMaterial', 'ngSanitize', 'firebase','ngRoute']);
+  var app = angular.module('mainApp', ['ksSwiper', 'ngMaterial', 'ngSanitize', 'firebase','ngRoute','ngMessages']);
 
   app.config(['$mdThemingProvider', '$mdIconProvider', '$routeProvider', '$locationProvider', function ($mdThemingProvider, $mdIconProvider,$routeProvider,$locationProvider) {
     $mdThemingProvider.theme('default')
@@ -33,26 +33,37 @@
         templateUrl: 'partials/about.html',
         controller: 'aboutCtrl'
       })
+      .when('/createBlogPost',{
+        templateUrl: 'partials/createBlogPost.html',
+        controller: 'createBlogPostCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
       $locationProvider.html5Mode(true);
     }]);
 
+    app.controller('createBlogPostCtrl', function($scope) {
+      $scope.project = {
+      };
+    });
 
     app.run(['$route', function($route)  {
       $route.reload();
     }]);
  
   app.controller('tabsCtrl', ['$scope','$location', '$window','$rootScope', function ($scope,$location,$window,$rootScope) {
+
     $window.fbAsyncInit = function() {
-      FB.init({ 
-        appId: '608009469364127',
-        status: true, 
-        cookie: true, 
-        xfbml: true,
-        version: 'v2.4'
-      });
+      if (typeof FB !== 'undefined'){
+        FB.init({ 
+          appId: '608009469364127',
+          status: true, 
+          cookie: true, 
+          xfbml: true,
+          version: 'v2.4'
+        });
+      }
     };
     (function(d, s, id){
       var js, fjs = d.getElementsByTagName(s)[0];
@@ -63,7 +74,9 @@
     }(document, 'script', 'facebook-jssdk'));
 
     $scope.$on('$viewContentLoaded', function(){
-      FB.XFBML.parse();
+      if (typeof FB !== 'undefined'){
+        FB.XFBML.parse();
+      }
     });
   }]);
 
@@ -93,6 +106,10 @@
     };
     $scope.aboutClick = function(){
       $location.url('/about');
+      $scope.openLeftMenu();      
+    };
+    $scope.createBlogPostClick = function(){
+      $location.url('/createBlogPost');
       $scope.openLeftMenu();      
     };
 
@@ -138,10 +155,16 @@
 
   app.controller('meetingCtrl', ['$scope', 'meetingFact', function ($scope, meetingFact, $firebaseArray) {
     $scope.blog = meetingFact;
+     $scope.formatDate = function (date) {
+       return new Date(date).toDateString();    
+     };
   }]);
 
   app.controller('blogCtrl', ['$scope', 'blogFact', function ($scope, blogFact) {
     $scope.blog = blogFact;
+    $scope.formatDate = function (date) {
+      return new Date(date).toDateString();    
+    };
   }]);
 
   app.controller('aboutCtrl', ['$scope', 'aboutFact', function ($scope, aboutFact) {

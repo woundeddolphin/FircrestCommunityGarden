@@ -31,6 +31,7 @@
 <!-- facebook sdk -->
   <div id="fb-root"></div>
   <!-- toolbar -->
+  <div ng-include="'partials/fabShare.html'"></div>
   <div ng-include="'partials/toolbar.html'"></div>
 
   <!-- content -->
@@ -40,13 +41,14 @@
 
   <!-- scripts -->
 
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular-animate.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular-aria.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular-sanitize.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-messages.js"></script>
 
-  <script src="https://www.gstatic.com/firebasejs/3.0.3/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.0.4/firebase.js"></script>
   <script>
     // Initialize Firebase
       var config = {
