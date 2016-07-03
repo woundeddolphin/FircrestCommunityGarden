@@ -1,8 +1,11 @@
 # FircrestCommunityGarden
-The repo for the FCG/We Dig Fircrest website
-See the production site at https://fircrestcommunitygarden.firebaseapp.com/index.html
+The repo for the FCG/WeDig Fircrest website
+See the production site at https://WeDigFircrest.og
 
 <b>Known issues</b>
-The site is transitioning to firebase but angularfire has not been updated so there is some redundant code in places
-Gardening tip of the week controller has not been implemented
-More sharing functionality is in the works
+<ul>
+  <li>Gardening tip of the week controller has not been implemented</li>
+  <li>OSX Safari cuts off the top of cards on some pages.</li>
+  <li>The facebook feed page does not change size on resize (also is the wrong size on load for sm and xs screens)</li>
+  <li>Should integrate with twitter and G+ pages when they are created</li>
+</ul>
