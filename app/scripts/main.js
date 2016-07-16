@@ -53,7 +53,14 @@
     }]);
  
   app.controller('mainCtrl', ['$scope','$location', '$window','$rootScope', function ($scope,$location,$window,$rootScope) {
-
+    function resizeCtrl($scope, $window) {
+      
+      var w = angular.element($window);
+      w.bind('resize', function () {
+        FB.XFBML.parse();
+        console.log("resized");
+      });
+    }
     $window.fbAsyncInit = function() {
       if (typeof FB !== 'undefined'){
         FB.init({ 
@@ -158,12 +165,18 @@
      $scope.formatDate = function (date) {
        return new Date(date).toDateString();    
      };
+     $scope.makeDate = function (date) {
+       return new Date(date);
+     };
   }]);
 
   app.controller('blogCtrl', ['$scope', 'blogFact', function ($scope, blogFact) {
     $scope.blog = blogFact;
     $scope.formatDate = function (date) {
       return new Date(date).toDateString();    
+    };
+    $scope.makeDate = function (date) {
+      return new Date(date);
     };
   }]);
 
